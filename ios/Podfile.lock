@@ -1,0 +1,42 @@
+PODS:
+  - dgis_map_kit (0.0.1):
+    - DGisMobileSDK (= 2.8.0-map)
+    - Flutter
+  - DGisMobileSDK (2.8.0-map)
+  - Flutter (1.0.0)
+  - location (0.0.1):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - dgis_map_kit (from `.symlinks/plugins/dgis_map_kit/ios`)
+  - Flutter (from `Flutter`)
+  - location (from `.symlinks/plugins/location/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+
+SPEC REPOS:
+  trunk:
+    - DGisMobileSDK
+
+EXTERNAL SOURCES:
+  dgis_map_kit:
+    :path: ".symlinks/plugins/dgis_map_kit/ios"
+  Flutter:
+    :path: Flutter
+  location:
+    :path: ".symlinks/plugins/location/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+
+SPEC CHECKSUMS:
+  dgis_map_kit: c5ada0de00c2c9df4be37a826d6b1fcffcf641b7
+  DGisMobileSDK: a5956ca1a3c2ce0ea558a960395e2129c64d5aab
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  location: d5cf8598915965547c3f36761ae9cc4f4e87d22e
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
+
+PODFILE CHECKSUM: 4305caec6b40dde0ae97be1573c53de1882a07e5
+
+COCOAPODS: 1.16.2

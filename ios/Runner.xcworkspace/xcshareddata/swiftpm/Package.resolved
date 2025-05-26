@@ -1,0 +1,15 @@
+{
+  "originHash" : "0b64b1c189f48ace65e28cd01b65dcd88ab11ca88d368c0b4bedf17356293a71",
+  "pins" : [
+    {
+      "identity" : "mobile-sdk-full-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/2gis/mobile-sdk-full-swift-package",
+      "state" : {
+        "revision" : "5dd9f69c99d0010ea9cc2e00b60aec5a4308bca2",
+        "version" : "12.6.3"
+      }
+    }
+  ],
+  "version" : 3
+}
