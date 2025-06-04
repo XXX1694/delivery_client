@@ -129,6 +129,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
                     animation: _animation,
                     builder: (context, child) {
                       final isFirstActive = _controller.value < 0.5;
+
                       final screenWidth = MediaQuery.of(context).size.width - 21;
                       final containerWidth = isFirstActive ? 326.0 : screenWidth;
 
@@ -197,7 +198,13 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
                                               iconPath: isFirstActive ? 'assets/icons/add.svg' : 'assets/icons/card.svg',
                                               text: isFirstActive ? 'Новый заказ' : null,
                                               isActive: isFirstActive,
-                                              onTap: () => _controller.forward(),
+                                              onTap: () {
+                                                if (!isFirstActive) {
+                                                  context.pushNamed('payment-details');
+                                                  return;
+                                                }
+                                                _controller.forward();
+                                              },
                                               needSvg: true,
                                               width: isFirstActive ? 164 : 64,
                                             ),
@@ -213,8 +220,9 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
                                                 isActive: !isFirstActive,
                                                 onTap: () {
                                                   if (!isFirstActive) {
-                                                    context.goNamed('order-details');
+                                                    context.pushNamed('order-details');
                                                   }
+                                                  context.pushNamed('order-history');
                                                 },
                                                 needSvg: isFirstActive,
                                                 width: double.infinity,
@@ -229,7 +237,12 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
                                             child: _buildButton(
                                               iconPath: isFirstActive ? 'assets/icons/profile.svg' : 'assets/icons/edit.svg',
                                               isActive: false,
-                                              onTap: () {},
+                                              onTap: () {
+                                                if (!isFirstActive) {
+                                                  context.pushNamed('order-details');
+                                                }
+                                                context.pushNamed('profile');
+                                              },
                                               needSvg: true,
                                               width: 64,
                                             ),
@@ -255,4 +268,3 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
     );
   }
 }
-

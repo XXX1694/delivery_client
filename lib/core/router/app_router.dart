@@ -1,5 +1,12 @@
+import 'package:delivery_client/features/chat/presentations/pages/chat_page.dart';
 import 'package:delivery_client/features/create_order/presentaion/pages/create_order_page.dart';
+import 'package:delivery_client/features/linking_card/presentations/pages/linking_card_page.dart';
 import 'package:delivery_client/features/order_details/presentations/pages/order_detalis_page.dart';
+import 'package:delivery_client/features/orders_history/presentations/pages/orders_history_page.dart';
+import 'package:delivery_client/features/payment/presentations/pages/payment_page.dart';
+import 'package:delivery_client/features/profile/presentations/pages/profile_page.dart';
+import 'package:delivery_client/features/settings/presentations/pages/settings_page.dart';
+// import 'package:delivery_client/features/profile/presentations/pages/order_detalis_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -28,6 +35,12 @@ final goRouter = GoRouter(
     GoRoute(path: '/create-account', name: 'create-account', builder: (context, state) => const CreateAccountPage()),
     GoRoute(path: '/create-order', name: 'create-order', builder: (context, state) => const CreateOrderPage()),
     GoRoute(path: '/order-details', name: 'order-details', builder: (context, state) => const OrderDetailsPage()),
+    GoRoute(path: '/payment-details', name: 'payment-details', builder: (context, state) => const PaymentDetailsPage()),
+    GoRoute(path: '/linking_card', name: 'linking_card', builder: (context, state) => const LinkingCardPage()),
+    GoRoute(path: '/order-history', name: 'order-history', builder: (context, state) => const OrdersHistoryPage()),
+    GoRoute(path: '/profile', name: 'profile', builder: (context, state) => const ProfilePage()),
+    GoRoute(path: '/settings', name: 'settings', builder: (context, state) => const SettingsPage()),
+    GoRoute(path: '/chat', name: 'chat', builder: (context, state) => const ChatPage()),
     // Add more routes here as needed
   ],
   errorBuilder: (context, state) => Scaffold(body: Center(child: Text('Error: ${state.error}'))),

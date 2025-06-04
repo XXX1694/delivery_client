@@ -1,4 +1,5 @@
 import 'package:delivery_client/core/theme/colors.dart';
+import 'package:delivery_client/features/widget/custom_texfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,59 +26,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
     super.dispose();
   }
 
-  Widget _buildField({
-    required String hint,
-    required String iconPath,
-    TextEditingController? controller,
-    bool readOnly = false,
-    VoidCallback? onTap,
-  }) {
-    return Container(
-      height: 64,
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        color: const Color(0xFF111111).withOpacity(0.02),
-        borderRadius: BorderRadius.circular(100),
-        border: Border.all(color: Colors.white),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 36,
-            height: 36,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(100),
-            ),
-            child: Center(child: SvgPicture.asset(iconPath)),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: TextFormField(
-              controller: controller,
-              readOnly: readOnly,
-              onTap: onTap,
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: hint,
-                hintStyle: const TextStyle(
-                  color: Color(0xFFA1A1A1),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
-              ),
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w400,
-                fontSize: 16,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -135,22 +84,22 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 32),
-              _buildField(
+              CustomTextField(
                 hint: 'ФИО',
                 iconPath: 'assets/icons/name.svg',
                 controller: _fioController,
               ),
-              _buildField(
+              CustomTextField(
                 hint: 'ИИН',
                 iconPath: 'assets/icons/iin.svg',
                 controller: _iinController,
               ),
-              _buildField(
+              CustomTextField(
                 hint: 'Город',
                 iconPath: 'assets/icons/city.svg',
                 controller: _cityController,
               ),
-              _buildField(
+              CustomTextField(
                 hint: 'Дата рождения',
                 iconPath: 'assets/icons/date.svg',
                 controller: _dobController,

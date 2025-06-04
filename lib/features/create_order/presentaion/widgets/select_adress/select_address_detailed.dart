@@ -45,50 +45,63 @@ class _SelectAddressWidgetState extends State<SelectAddressWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(margin: const EdgeInsets.symmetric(vertical: 14), height: 5, width: 64, decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: const Color(0xFFEEEEEE))),
-          if (isLanding == null || isLanding == true) RouteEntryWidget(title: "Точка посадки", icon: "assets/icons/from.svg", addressController: _fromController, onTap: () => _handlePointTap(true)),
+      child: SizedBox(
+        height: 600,
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Container(margin: const EdgeInsets.symmetric(vertical: 14), height: 5, width: 64, decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: const Color(0xFFEEEEEE))),
+                if (isLanding == null || isLanding == true)
+                  RouteEntryWidget(title: "Точка посадки", icon: "assets/icons/from.svg", addressController: _fromController, onTap: () => _handlePointTap(true)),
+                if (isLanding == null) const SizedBox(height: 12),
+                if (isLanding == null || isLanding == false)
+                  RouteEntryWidget(title: "Пункт назначения", icon: "assets/icons/flag.svg", addressController: _fromController, onTap: () => _handlePointTap(false)),
+                if (isLanding != null) const SizedBox(height: 20),
+              ],
+            ),
 
-          if (isLanding == null) const SizedBox(height: 12),
-          if (isLanding == null || isLanding == false)
-            RouteEntryWidget(title: "Пункт назначения", icon: "assets/icons/flag.svg", addressController: _fromController, onTap: () => _handlePointTap(false)),
-          if (isLanding != null) const SizedBox(height: 20),
-          AnimatedSize(
-            duration: const Duration(milliseconds: 300),
-            child:
-                isLanding != null
-                    ? ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 7,
-                      padding: EdgeInsets.only(bottom: 20),
-                      itemBuilder: (_, index) {
-                        return Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsetsGeometry.only(top: 4), child: SvgPicture.asset("assets/icons/location.svg")),
-                            SizedBox(width: 16),
-                            Expanded(
-                              child: Column(
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 230,
+              child: AnimatedSize(
+                duration: const Duration(milliseconds: 300),
+                child:
+                    isLanding != null
+                        ? SizedBox(
+                          height: 200, // ограничение по высоте
+                          child: ListView.builder(
+                            padding: EdgeInsets.only(bottom: 20),
+                            itemCount: 7,
+                            itemBuilder: (_, index) {
+                              return Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Kabanbai Batyr 87", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-                                  Text("Taugul-3 shagyn audany, Almaty", style: TextStyle(fontSize: 12, color: Color(0xFF9E9E9E))),
-
-                                  Padding(padding: EdgeInsetsGeometry.symmetric(vertical: 12), child: const Divider(height: 1, color: Color(0xFFEEEEEE))),
+                                  Padding(padding: EdgeInsets.only(top: 4), child: SvgPicture.asset("assets/icons/location.svg")),
+                                  SizedBox(width: 16),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Kabanbai Batyr 87", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                                        Text("Taugul-3 shagyn audany, Almaty", style: TextStyle(fontSize: 12, color: Color(0xFF9E9E9E))),
+                                        Padding(padding: EdgeInsets.symmetric(vertical: 12), child: Divider(height: 1, color: Color(0xFFEEEEEE))),
+                                      ],
+                                    ),
+                                  ),
                                 ],
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    )
-                    : const SizedBox(width: double.infinity),
-          ),
-        ],
+                              );
+                            },
+                          ),
+                        )
+                        : const SizedBox.shrink(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
