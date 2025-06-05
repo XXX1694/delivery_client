@@ -86,7 +86,9 @@ class PaymentDetailsPage extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: mainColor, // Цвет фона
                         padding: const EdgeInsets.symmetric(vertical: 15), // Отступы
