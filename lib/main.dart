@@ -7,6 +7,7 @@ import 'package:delivery_client/features/auth/data/datasources/auth_remote_data_
 import 'package:delivery_client/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:delivery_client/features/auth/domain/repositories/auth_repository.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // debugRepaintRainbowEnabled = true;
@@ -16,6 +17,7 @@ void main() async {
     connectTimeout: const Duration(seconds: 10),
     receiveTimeout: const Duration(seconds: 10),
   );
+
 
   runApp(const MyApp());
 }
@@ -27,22 +29,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<AuthRemoteDataSource>(
-          create: (context) => AuthRemoteDataSourceImpl(ApiService().dio),
-        ),
-        RepositoryProvider<AuthRepository>(
-          create:
-              (context) =>
-                  AuthRepositoryImpl(context.read<AuthRemoteDataSource>()),
-        ),
+        RepositoryProvider<AuthRemoteDataSource>(create: (context) => AuthRemoteDataSourceImpl(ApiService().dio)),
+        RepositoryProvider<AuthRepository>(create: (context) => AuthRepositoryImpl(context.read<AuthRemoteDataSource>())),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Delivery App',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), useMaterial3: true),
         routerConfig: goRouter,
       ),
     );
