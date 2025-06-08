@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delivery_client/core/theme/colors.dart';
+import 'package:delivery_client/core/utils/utils.dart';
+import 'package:delivery_client/features/chat/presentations/widgets/message_bubble.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,8 +39,8 @@ class ChatPage extends StatelessWidget {
                           context.pop();
                         },
                         child: Container(
-                          height: 64,
-                          width: 64,
+                          height: 56,
+                          width: 56,
                           decoration: BoxDecoration(color: Colors.white70, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(100)),
                           child: Center(child: SvgPicture.asset('assets/icons/left_arrow.svg')),
                         ),
@@ -57,7 +59,7 @@ class ChatPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 5),
-                      SvgPicture.asset('assets/icons/phone.svg', width: 26, height: 26),
+                      GestureDetector(onTap: () => Utils.callPhoneNumber('777777777777'), child: SvgPicture.asset('assets/icons/phone.svg', width: 26, height: 26, fit: BoxFit.fill)),
                       SizedBox(width: 38),
                     ],
                   ),
@@ -115,46 +117,6 @@ class ChatPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class MessageBubble extends StatelessWidget {
-  final Message message;
-
-  const MessageBubble({super.key, required this.message});
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: message.isMe ? Alignment.centerRight : Alignment.centerLeft,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            constraints: BoxConstraints(maxWidth: 300),
-            decoration: BoxDecoration(
-              color: message.isMe ? Color(0xFF446AEF) : Color(0xFFE2E2E2),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-                bottomLeft: message.isMe ? Radius.circular(20) : Radius.circular(0),
-                bottomRight: message.isMe ? Radius.circular(0) : Radius.circular(20),
-              ),
-            ),
-            child: Text(message.content, style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400)),
-          ),
-          SizedBox(height: 8),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [Text(message.time, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xFFA1A1A1))), SizedBox(width: 4), SvgPicture.asset('assets/icons/check_read.svg')],
-          ),
-        ],
       ),
     );
   }

@@ -46,7 +46,7 @@ class LinkingCardPage extends StatelessWidget {
 
                     CustomTextField(hint: 'Номер карты'),
 
-                    Row(children: [Expanded(child: CustomTextField(hint: 'Cрок годности')), Expanded(child: CustomTextField(hint: 'CVV', keyBoardType: TextInputType.number))]),
+                    Row(children: [Expanded(child: CustomTextField(hint: 'Cрок годности')), SizedBox(width: 12), Expanded(child: CustomTextField(hint: 'CVV', keyBoardType: TextInputType.number))]),
                   ],
                 ),
               ),
