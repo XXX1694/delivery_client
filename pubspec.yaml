@@ -19,6 +19,7 @@ dependencies:
   flutter_svg: ^2.1.0
   dgis_map_kit: ^0.0.7
   cached_network_image: ^3.4.1
+  url_launcher: ^6.3.1
 
 
 
