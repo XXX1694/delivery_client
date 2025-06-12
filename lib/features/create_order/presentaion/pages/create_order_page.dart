@@ -11,8 +11,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theme/colors.dart';
 import '../widgets/address_field.dart';
 
-
-
 enum ActiveTab { newOrder, orderHistory, profile, orderDetails }
 
 class CreateOrderPage extends StatefulWidget {
@@ -28,17 +26,13 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
   final TextEditingController _fromAddressController = TextEditingController();
   final TextEditingController _toAddressController = TextEditingController();
 
-
   ActiveTab _activeTab = ActiveTab.newOrder;
-
-
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(duration: const Duration(milliseconds: 300), vsync: this);
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
-
   }
 
   @override
@@ -232,7 +226,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
                                   duration: const Duration(milliseconds: 300),
                                   curve: Curves.easeInOut,
                                   child: _buildButton(
-                                    iconPath: 'assets/icons/order_history.svg',
+                                    iconPath: _activeTab == ActiveTab.orderHistory ? 'assets/icons/notebook_fill.svg' : 'assets/icons/order_history.svg',
                                     text:
                                         _activeTab == ActiveTab.orderHistory
                                             ? 'История'
@@ -259,7 +253,12 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
                                   curve: Curves.easeInOut,
                                   width: _activeTab == ActiveTab.profile ? 164 : 64,
                                   child: _buildButton(
-                                    iconPath: _activeTab == ActiveTab.orderDetails ? 'assets/icons/edit.svg' : 'assets/icons/profile.svg',
+                                    iconPath:
+                                        _activeTab == ActiveTab.orderDetails
+                                            ? 'assets/icons/edit.svg'
+                                            : _activeTab == ActiveTab.profile
+                                            ? 'assets/icons/profile_fill.svg'
+                                            : 'assets/icons/profile.svg',
                                     text: _activeTab == ActiveTab.profile ? 'Профиль' : null,
                                     isActive: _activeTab == ActiveTab.profile,
                                     onTap: () {
@@ -294,8 +293,6 @@ class _CreateOrderPageState extends State<CreateOrderPage> with TickerProviderSt
   }
 }
 
-
 void showCourierSearchBottom(BuildContext context) {
   showModalBottomSheet(context: context, isScrollControlled: true, backgroundColor: const Color(0xFFfefefe), builder: (_) => CourierSearchWidget());
 }
-

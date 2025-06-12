@@ -34,65 +34,45 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 12),
-                SizedBox(
-                  height: 64,
-                  width: double.infinity,
-                  child: Center(
-                    child: Text(
-                      'Войти',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                      ),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Form(
+                  key: _formKey,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 12),
+                        SizedBox(height: 64, width: double.infinity, child: Center(child: Text('Войти', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500)))),
+                        const SizedBox(height: 52),
+                        Text('Введите свой номер телефона', style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500), textAlign: TextAlign.center),
+                        const SizedBox(height: 12),
+                        Text('чтобы войти в систему', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400), textAlign: TextAlign.center),
+                        const SizedBox(height: 72),
+                        PhoneInputField(controller: _phoneController),
+                        SizedBox(height: 100),
+                      ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 52),
-                Text(
-                  'Введите свой номер телефона',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  'чтобы войти в систему',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 72),
-                PhoneInputField(controller: _phoneController),
-                const Spacer(),
-                CupertinoButton(
+              ),
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 24,
+                child: CupertinoButton(
                   padding: const EdgeInsets.all(0),
                   onPressed: _onSubmit,
                   child: Container(
                     height: 64,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: mainColor,
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Отправить код',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
+
+                    decoration: BoxDecoration(color: mainColor, borderRadius: BorderRadius.circular(100)),
+                    child: const Center(child: Text('Отправить код', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500))),
                   ),
                 ),
-                const SizedBox(height: 24),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
