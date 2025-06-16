@@ -71,7 +71,7 @@ class _OrdersHistoryPageState extends State<OrdersHistoryPage> with TickerProvid
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

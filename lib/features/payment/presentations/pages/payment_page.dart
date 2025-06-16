@@ -16,7 +16,7 @@ class PaymentDetailsPage extends StatelessWidget {
       backgroundColor: Color(0xFFf4f5ff),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Stack(
             children: [
               SingleChildScrollView(
@@ -83,7 +83,7 @@ class PaymentDetailsPage extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: EdgeInsetsGeometry.only(bottom: 24),
+                  padding: EdgeInsets.only(bottom: 24),
                   child: SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(

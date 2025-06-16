@@ -12,7 +12,7 @@ class OrderHistoryMoreInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.only(top: 16),
+      padding: EdgeInsets.only(top: 16),
       child: Row(
         children: [
           CircleAvatar(backgroundImage: CachedNetworkImageProvider("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zwhySGCEBxRRFYIcQgvOLOpRGqrT3d7Qng&s"), radius: 20),

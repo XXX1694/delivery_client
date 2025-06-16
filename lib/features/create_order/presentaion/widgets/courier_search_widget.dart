@@ -34,7 +34,7 @@ class CourierSearchWidget extends StatelessWidget {
                 )
                 : Text('Заказ отменен', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black)),
 
-            Padding(padding: EdgeInsetsGeometry.symmetric(vertical: 24), child: Divider(color: Color(0xFFEEEEEE), height: 1)),
+            Padding(padding: EdgeInsets.symmetric(vertical: 24), child: Divider(color: Color(0xFFEEEEEE), height: 1)),
             Text("Способ оплаты", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.black)),
             SizedBox(height: 12),
             Container(
@@ -69,7 +69,7 @@ class CourierSearchWidget extends StatelessWidget {
                       Text('+7 707 564 7466', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18, color: Colors.black)),
                     ],
                   ),
-                  Padding(padding: EdgeInsetsGeometry.symmetric(vertical: 29), child: Divider(color: Color(0xFFCBCBCB), height: 1)),
+                  Padding(padding: EdgeInsets.symmetric(vertical: 29), child: Divider(color: Color(0xFFCBCBCB), height: 1)),
                   Row(
                     children: [
                       SvgPicture.asset('assets/icons/points.svg', fit: BoxFit.fill),

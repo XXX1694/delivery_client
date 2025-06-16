@@ -26,7 +26,7 @@ class OrdersHistoryWidget extends StatelessWidget {
               Expanded(
                 child: Row(
                   children: [
-                    Padding(padding: EdgeInsetsGeometry.only(bottom: 20), child: SvgPicture.asset('assets/icons/arrow_down.svg')),
+                    Padding(padding: EdgeInsets.only(bottom: 20), child: SvgPicture.asset('assets/icons/arrow_down.svg')),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Column(
