@@ -14,7 +14,7 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: Color(0xFFf4f5ff),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

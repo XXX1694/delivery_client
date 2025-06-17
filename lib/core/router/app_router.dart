@@ -20,7 +20,7 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(de
 
 final goRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/auth',
+  initialLocation: '/create-order',
   debugLogDiagnostics: true,
   routes: [
     GoRoute(path: '/auth', name: 'auth', builder: (context, state) => const PhoneAuthPage()),

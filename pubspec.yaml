@@ -2,8 +2,9 @@ name: delivery_client
 description: "Delivery app"
 version: 1.0.0+1
 
+
 environment:
-  sdk: ^3.7.0
+  sdk: ">=3.0.5 <4.0.0"
 
 dependencies:
   flutter:
@@ -36,4 +37,3 @@ flutter:
 
   assets:
     - assets/icons/
-    - assets/images/
